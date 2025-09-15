@@ -33,9 +33,14 @@ files = [
     "docs/demo_script.md"
 ]
 
+# Create folders
 for folder in folders:
     os.makedirs(folder, exist_ok=True)
 
+# Create files with placeholder content
 for file in files:
+    folder_path = os.path.dirname(file)
+    if folder_path and not os.path.exists(folder_path):
+        os.makedirs(folder_path, exist_ok=True)
     with open(file, "w") as f:
-        f.write("# " + file.split("/")[-1])
+        f.write(f"# {os.path.basename(file)}\n")
