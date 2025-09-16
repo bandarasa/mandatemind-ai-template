@@ -1,1 +1,0 @@
-# siem_adapter.py
